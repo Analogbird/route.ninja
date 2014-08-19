@@ -1,15 +1,15 @@
 {
-	"process": "middleware/request",
+	"process": "/middleware/traffic",
 	"routes": [
 		{
-			"get": "/shuriken",
-			"run": "shuriken",
-			"from": "controllers/tools"
+			"get": "/style",
+			"run": "style",
+			"from": "/controllers/ninja"
 		},
 		{
-			"get": "/katana",
-			"run": "katana",
-			"from": "controllers/tools",
+			"get": "/weapon",
+			"run": "weapon",
+			"from": "/controllers/ninja",
 			"via": [
 				"process.filter",
 				"process.validate",

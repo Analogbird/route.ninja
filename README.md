@@ -59,7 +59,7 @@ new Ninja(app, budo[optional])
 The `app` parameter is the actual `app` you get from Express, `budo` is the path to the file which defines your Ninja's rules. By default, your `Ninja` will try to find it's `budo` in the base directory where your application resides.
 
 
-And now, you can do something like this:
+And now, you are ready to do something like this:
 
 ```
 var express = require('express'),
@@ -79,7 +79,7 @@ app.listen(3000);
 ```
 
 
-As in any martial arts style, your Ninja requires a `budo`. You can create a `budo` file and tell your `Ninja` how to route the traffic for your application based on those rules:
+As in any martial arts style, your Ninja requires a `budo`. You can create a `budo.json` file and tell your `Ninja` how to route the traffic for your application based on those rules:
 
 ```
 {
@@ -95,29 +95,31 @@ As in any martial arts style, your Ninja requires a `budo`. You can create a `bu
 
 Let’s illustrate things a little. Say, for example, you want to:
 
-* Make a GET request to your web server with the (relative) URL `/person`,
-* Your Express application should respond to this call using the `people` method, found in the `human.js` file. Your `budo` would look like this:
+* Make a GET request to your web server with the (relative) URL `/style`,
+* Your Express application should respond to this call using the `style` method, found in the `/controllers/ninja (/controllers/ninja.js)` file. Your `budo` would look like this:
 
 ```
 {
 	"routes": [
 		{
-			"get": "/person",
-			"run": "people",
-			"from": "human"
+			"get": "/style",
+			"run": "style",
+			"from": "/controllers/ninja"
 		}
 	]
 }
 ```
+
+**Note:** All files where your code/methods are defined must be referenced relavitely to your application. In the above example; the file `ninja.js` resides in the `controllers` directory, which -in turn- resides at the same level as you application. 
 
 In Express syntax, this would translate into:
 
 ```
 var express = require('express'),
 	app = express(),
-	human = require('human');
+	ninja = require('./controllers/ninja');
 
-app.get('/person', human.people);
+app.get('/style', ninja.style);
 
 app.listen(3000);
 ```
@@ -126,16 +128,16 @@ app.listen(3000);
 
 ### Routing through middleware
 
-In some cases, you will want to run some middleware before your actual method. You can also define this in your `budo` and the `Ninja` will take care of it. Middleware is useful when you want to, for example, filter, validate or process any incoming data.
+In some cases, you will want to run some middleware before your actual method. You can also define this in your `budo.json` file and the `Ninja` will take care of it. Middleware is useful, for example, when you want to filter, validate or process any incoming data.
 
 ```
 {
-	"process": "middleware",
+	"process": "/middleware/prepare",
 	"routes": [
 		{
-			"get": "/person",
-			"run": "people",
-			"from": "human",
+			"get": "/style",
+			"run": "style",
+			"from": "/controllers/ninja",
 			"via": [
 				"process.filter",
 				"process.validate"
@@ -147,18 +149,18 @@ In some cases, you will want to run some middleware before your actual method. Y
 
 So, let's elaborate:
 
-* The `process` property must not be called `process`, you can call it anything you like. This will just tell the `Ninja` which file holds the methods you want to run. In this case the methods are to be found in the `middleware.js` file.
-* The `route` object now holds an extra property; `via`, this tells the `Ninja` to run these methods before actually running the `people` method. This is also where you reference the `process` you defined before. Middleware is run in the same order as in the array. 
+* The `process` property must not be called `process`, you can call it anything you like. This will just tell the `Ninja` which file holds the methods you want to run. In this case the methods are to be found in the `/middleware/prepare (/middleware/prepare.js)` file.
+* The `route` object now holds an extra property; `via`, this tells the `Ninja` to run these methods before actually running the `style` method. This is also where you reference the `process` you defined before. Your middleware will be run in the same order as specified in the array.
 
 Again, in Express syntax, this would translate into:
 
 ```
 var express = require('express'),
 	app = express(),
-	process = require('middleware')
-	human = require('human');
+	process = require('./middleware/prepare')
+	ninja = require('./controllers/ninja');
 
-app.get('/person', process.filter, process.validate, human.people);
+app.get('/style', process.filter, process.validate, ninja.style);
 
 app.listen(3000);
 ```
