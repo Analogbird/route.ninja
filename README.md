@@ -5,6 +5,13 @@
 
 route.ninja
 ===============
+```
+/ˈnɪndʒə/
+	
+	noun: ninja; plural noun: ninjas
+	A person who excels in a particular skill or activity.
+```
+
 
 The best -and easiest- way to manage your routes in your Nodejs &amp; Express applications.
 
@@ -64,10 +71,15 @@ var express = require('express'),
 app.listen(3000);
 ```
 
-
 ### Define your budo (routing logic)
+```
+/ˈbuːdəʊ/
 
-As in any martial arts style, your Ninja requires a `budo`. `Budo` is the code on which martial arts are all based. You can create a `budo` file and tell your `Ninja` how to route the traffic for your application based on those rules:
+	Budo is the code on which martial arts are all based.
+```
+
+
+As in any martial arts style, your Ninja requires a `budo`. You can create a `budo` file and tell your `Ninja` how to route the traffic for your application based on those rules:
 
 ```
 {
@@ -111,6 +123,7 @@ app.listen(3000);
 ```
 
 
+
 ### Routing through middleware
 
 In some cases, you will want to run some middleware before your actual method. You can also define this in your `budo` and the `Ninja` will take care of it. Middleware is useful when you want to, for example, filter, validate or process any incoming data.
@@ -149,6 +162,7 @@ app.get('/person', process.filter, process.validate, human.people);
 
 app.listen(3000);
 ```
+
 
 
 
