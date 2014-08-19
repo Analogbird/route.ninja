@@ -1,0 +1,49 @@
+{
+	"name": "route.ninja",
+	"description": "The best -and easiest- way to manage your routes in your Nodejs & Express applications",
+	"version": "0.0.7",
+	"main": "./lib/ninja.js",
+	"author": "Stefan Aichholzer <theaichholzer@gmail.com>",
+	"contributors": [],
+	"maintainers": [],
+	"keywords": [
+		"router",
+		"express",
+		"application",
+		"routes"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:analogbird/route.ninja.git"
+	},
+	"license": "MIT",
+	"dependencies": {
+		
+	},
+	"devDependencies": {
+		"express": "^4.8.4",
+		"mocha": "~1.20.1",
+		"debug": "1.0.3",
+		"should": "~4.0.4"
+	},
+	"engines": {
+		"node": ">= 0.10.25"
+	},
+	"scripts": {
+		"test": "./node_modules/mocha/bin/mocha -R spec -t 5000",
+		"test-debug": "./node_modules/mocha/bin/mocha -R spec -t 5000",
+		"test-markdown": "./node_modules/mocha/bin/mocha -R markdown -t 5000 > Test.readme.md"
+	},
+	"bugs": {
+		"url": "https://github.com/analogbird/route.ninja/issues"
+	},
+	"homepage": "https://github.com/analogbird/route.ninja",
+	"_from": "route.ninja@^0.0.7",
+	"_npmUser": {
+		"name": "aichholzer",
+		"email": "theaichholzer@gmail.com"
+	},
+	"directories": {
+		"test": "test"
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"process": "middleware/request",
+	"routes": [
+		{
+			"get": "/shuriken",
+			"run": "shuriken",
+			"from": "controllers/tools"
+		},
+		{
+			"get": "/katana",
+			"run": "katana",
+			"from": "controllers/tools",
+			"via": [
+				"process.filter",
+				"process.validate",
+				"process.terminate"
+			]
+		}
+	]
+}
