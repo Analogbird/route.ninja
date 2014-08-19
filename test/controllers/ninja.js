@@ -9,7 +9,17 @@ module.exports = {
 	
 	weapon : function(req, res, next) {
 
-		res.send('Kusarigama is my favourite weapon.');
+		var response = 'Kusarigama is my favourite weapon.'; 
+		response += req.ninja.filtered || ' - Unfiltered';
+		response += req.ninja.validated || ' - Unvalidated';
+		
+		res.send(response);
+
+	},
+
+	legend : function(req, res, next) {
+
+		res.send('I received the legend: ' + req.body.legend.trim());
 
 	}
 

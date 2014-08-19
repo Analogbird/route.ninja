@@ -1,8 +1,10 @@
+/*
+
 var express = require('express'),
 	app = express(),
-	Ninja = require('route.ninja');
+	Ninja = require('../lib/ninja.js');
 
-	new Ninja(app);
-	//new Ninja(app, __dirname + '/budo.json');
+	new Ninja(app, __dirname);
 
 app.listen(7021);
+*/

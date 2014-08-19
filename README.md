@@ -53,10 +53,10 @@ var ninja = require('route.ninja');
 Summon your `Ninja`:
 
 ```
-new Ninja(app, budo[optional])
+new Ninja(app, APP_PATH[optional])
 ```
 
-The `app` parameter is the actual `app` you get from Express, `budo` is the path to the file which defines your Ninja's rules. By default, your `Ninja` will try to find it's `budo` in the base directory where your application resides.
+The `app` parameter is the actual `app` you get from Express, `APP_PATH` is the path to the where you application resides. By default, your `Ninja` will try to find the directory where your application resides but it is recommended that you pass this value. You can easily do this with: `__dirname`.
 
 
 And now, you are ready to do something like this:
@@ -66,7 +66,7 @@ var express = require('express'),
 	app = express(),
 	Ninja = require('route.ninja');
 	
-	new Ninja(app);
+	new Ninja(app, __dirname);
 
 app.listen(3000);
 ```

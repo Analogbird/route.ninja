@@ -1,5 +1,5 @@
 {
-	"pre": "/middleware/traffic",
+	"pre": "/middleware/prepare",
 	"routes": [
 		{
 			"get": "/style",
@@ -14,6 +14,11 @@
 				"pre.filter",
 				"pre.validate"
 			]
+		},
+		{
+			"post": "/legend",
+			"run": "legend",
+			"from": "/controllers/ninja"
 		}
 	]
 }
