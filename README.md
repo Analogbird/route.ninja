@@ -132,15 +132,15 @@ In some cases, you will want to run some middleware before your actual method. Y
 
 ```
 {
-	"process": "/middleware/prepare",
+	"pre": "/middleware/prepare",
 	"routes": [
 		{
 			"get": "/style",
 			"run": "style",
 			"from": "/controllers/ninja",
 			"via": [
-				"process.filter",
-				"process.validate"
+				"pre.filter",
+				"pre.validate"
 			]
 		}
 	]
@@ -149,18 +149,18 @@ In some cases, you will want to run some middleware before your actual method. Y
 
 So, let's elaborate:
 
-* The `process` property must not be called `process`, you can call it anything you like. This will just tell the `Ninja` which file holds the methods you want to run. In this case the methods are to be found in the `/middleware/prepare (/middleware/prepare.js)` file.
-* The `route` object now holds an extra property; `via`, this tells the `Ninja` to run these methods before actually running the `style` method. This is also where you reference the `process` you defined before. Your middleware will be run in the same order as specified in the array.
+* The `pre` property must not be called `pre`, you can call it anything you like. This will just tell the `Ninja` which file holds the methods you want to run as middleware. In this case the methods are to be found in the `/middleware/prepare (/middleware/prepare.js)` file.
+* The `route` object now holds an extra property; `via`, this tells the `Ninja` to run these methods before actually running the `style` method. This is also where you reference the `pre` you defined before. Your middleware will be run in the same order as specified in the array.
 
 Again, in Express syntax, this would translate into:
 
 ```
 var express = require('express'),
 	app = express(),
-	process = require('./middleware/prepare')
+	pre = require('./middleware/prepare')
 	ninja = require('./controllers/ninja');
 
-app.get('/style', process.filter, process.validate, ninja.style);
+app.get('/style', pre.filter, pre.validate, ninja.style);
 
 app.listen(3000);
 ```

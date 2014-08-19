@@ -1,5 +1,5 @@
 {
-	"process": "/middleware/traffic",
+	"pre": "/middleware/traffic",
 	"routes": [
 		{
 			"get": "/style",
@@ -11,9 +11,8 @@
 			"run": "weapon",
 			"from": "/controllers/ninja",
 			"via": [
-				"process.filter",
-				"process.validate",
-				"process.terminate"
+				"pre.filter",
+				"pre.validate"
 			]
 		}
 	]
