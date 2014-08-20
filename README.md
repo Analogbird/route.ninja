@@ -13,9 +13,13 @@ route.ninja
 ```
 
 
-The best -and easiest- way to manage your routes in your Nodejs &amp; Express applications.
+[![Dependencies](https://david-dm.org/analogbird/route.ninja.png)](https://david-dm.org/analogbird/route.ninja)
 
-The Ninja used this logo was kindly provided by <a href="http://pixabay.com/en/users/Nemo/" target="_blank">Nemo @ Pixabay</a>
+[![NPM](https://nodei.co/npm/route.ninja.png?downloads=true&stars=true)](https://nodei.co/npm/route.ninja/)
+
+[![NPM](https://nodei.co/npm-dl/route.ninja.png)](https://nodei.co/npm/route.ninja/)
+
+The best -and easiest- way to manage your routes in your Nodejs &amp; Express applications.
 
 
 ### Usage
@@ -171,8 +175,10 @@ app.listen(3000);
 
 
 
-
-
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+The Ninja used this logo was kindly provided by <a href="http://pixabay.com/en/users/Nemo/" target="_blank">Nemo @ Pixabay</a>
 
 
 
