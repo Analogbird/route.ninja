@@ -15,10 +15,6 @@ route.ninja
 
 [![Dependencies](https://david-dm.org/analogbird/route.ninja.png)](https://david-dm.org/analogbird/route.ninja)
 
-[![NPM](https://nodei.co/npm/route.ninja.png?downloads=true&stars=true)](https://nodei.co/npm/route.ninja/)
-
-[![NPM](https://nodei.co/npm-dl/route.ninja.png)](https://nodei.co/npm/route.ninja/)
-
 The best -and easiest- way to manage your routes in your Nodejs &amp; Express applications.
 
 
