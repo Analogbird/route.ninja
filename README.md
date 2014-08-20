@@ -167,6 +167,52 @@ app.listen(3000);
 
 
 
+### Upcoming features
+
+##### Use middleware in a route without predefining it
+```
+{
+	"get": "/style",
+	"run": "style",
+	"from": "/controllers/ninja",
+	"via": [
+		"/middleware/prepare.filter",
+		"/middleware/prepare.validate"
+	]
+}
+```
+
+##### Multiple HTTP verbs for the same route
+```
+{
+	"get, post, put": "/style",
+	"run": "style",
+	"from": "/controllers/ninja"
+}
+```
+
+##### Multiple routes for the same HTTP verb
+```
+{
+	"get": "/style, /technique, /doctrine",
+	"run": "style",
+	"from": "/controllers/ninja"
+}
+```
+
+##### All of the above combined
+```
+{
+	"get, post, put": "/style, /technique, /doctrine",
+	"run": "style",
+	"from": "/controllers/ninja",
+	"via": [
+		"/middleware/prepare.filter",
+		"/middleware/prepare.validate"
+	]
+}
+```
+
 
 
 

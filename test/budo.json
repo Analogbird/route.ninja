@@ -18,7 +18,11 @@
 		{
 			"post": "/legend",
 			"run": "legend",
-			"from": "/controllers/ninja"
+			"from": "/controllers/ninja",
+			"via": [
+				"pre.filter",
+				"pre.validate"
+			]
 		}
 	]
 }
