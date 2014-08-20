@@ -57,7 +57,7 @@ var ninja = require('route.ninja');
 Summon your `Ninja`:
 
 ```
-new Ninja(app, APP_PATH[optional])
+new Ninja(app [, APP_PATH])
 ```
 
 The `app` parameter is the actual `app` you get from Express, `APP_PATH` is the path to the where you application resides. By default, your `Ninja` will try to find the directory where your application resides but it is recommended that you pass this value. You can easily do this with: `__dirname`.
