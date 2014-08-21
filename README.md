@@ -17,6 +17,10 @@ route.ninja
 
 The best -and easiest- way to manage your routes in your Nodejs &amp; Express applications.
 
+`
+You can cut to chase and take a look at the test application (in the test directory) 
+`
+
 
 ### Usage
 
@@ -38,35 +42,27 @@ which, if you have a lot of routes, can become quite a painful spaghetti sort of
 
 ### Enter the Ninja
 
-Install your `Ninja`:
+Install the `Ninja`:
 
 ```
 npm install route.ninja
 ```
 
-Require your `Ninja`:
+Require the `Ninja` and summon the ninja:
 
 ```
-var ninja = require('route.ninja');
+var ninja = require('route.ninja').with(express, [, APP_PATH])
 ```
 
-Summon your `Ninja`:
-
-```
-new Ninja(app [, APP_PATH])
-```
-
-The `app` parameter is the actual `app` you get from Express, `APP_PATH` is the path to the where you application resides. By default, your `Ninja` will try to find the directory where your application resides but it is recommended that you pass this value. You can easily do this with: `__dirname`.
+The `express` parameter is the actual `Express` library, `APP_PATH` is the path where you application resides. By default, the `Ninja` will try to find the directory where your application resides but it's recommended that you pass this value. You can easily do this with: `__dirname`.
 
 
 And now, you are ready to do something like this:
 
 ```
 var express = require('express'),
-	app = express(),
-	Ninja = require('route.ninja');
-	
-	new Ninja(app, __dirname);
+	ninja = require('route.ninja').with(express, __dirname),
+	app = ninja.app();
 
 app.listen(3000);
 ```
@@ -79,7 +75,7 @@ app.listen(3000);
 ```
 
 
-As in any martial arts style, your Ninja requires a `budo`. You can create a `budo.json` file and tell your `Ninja` how to route the traffic for your application based on those rules:
+As in any martial arts style, the Ninja requires a `budo`. You can create a `budo.json` file and tell the `Ninja` how to route the traffic for your application based on those rules:
 
 ```
 {

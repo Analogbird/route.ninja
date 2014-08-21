@@ -4,13 +4,12 @@ require('should');
 
 var request = require('supertest'),
 	express = require('express'),
-	app = express(),
 	bodyParser = require('body-parser'),
-	Ninja = require('../lib/ninja.js');
+	ninja = require('../lib/ninja.js').with(express, __dirname),
+	app;
 
-app.use(bodyParser.json());
-
-new Ninja(app, __dirname);
+	ninja.use(bodyParser.json());
+	app = ninja.app();
 
 describe('route.ninja', function () {
 
