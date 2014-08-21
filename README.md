@@ -48,7 +48,7 @@ Install the `Ninja`:
 npm install route.ninja
 ```
 
-Require the `Ninja` and summon the ninja:
+Require and summon the `Ninja`:
 
 ```
 var ninja = require('route.ninja').with(express, [, APP_PATH])
