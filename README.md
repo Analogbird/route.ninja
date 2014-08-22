@@ -67,6 +67,33 @@ var express = require('express'),
 app.listen(3000);
 ```
 
+You can also the the `Ninja` to use any `Express` middleware, such as, for example; `body-parser`, `cookie-parser` or `express-session`:
+
+```
+var express = require('express'),
+	bodyParser = require('body-parser')
+	cookieParser = require('cookie-parser'),
+	ninja = require('route.ninja'),
+	app;
+
+ninja.with(express, __dirname);
+ninja.use(bodyParser.json());
+ninja.use(cookieParser());
+
+/**
+ * You could also chain the "use" method:
+ * ninja.use(bodyParser.json()).use(cookieParser());
+ *
+ * Or simply pass each middleware as an argument to "use":
+ * ninja.use(bodyParser.json(), cookieParser());
+ */
+
+app = ninja.app();
+
+app.listen(3000);
+```
+
+
 ### Define your budo (routing logic)
 ```
 /ˈbuːdəʊ/

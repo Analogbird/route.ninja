@@ -5,9 +5,11 @@ require('should');
 var request = require('supertest'),
 	express = require('express'),
 	bodyParser = require('body-parser'),
+	cookieParser = require('cookie-parser'),
 	ninja = require('../lib/ninja.js').with(express, __dirname),
 	app;
 
+	ninja.use(cookieParser());
 	ninja.use(bodyParser.json());
 	app = ninja.app();
 
