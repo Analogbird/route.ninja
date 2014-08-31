@@ -51,7 +51,7 @@ npm install route.ninja
 Require and summon the `Ninja`:
 
 ```
-var ninja = require('route.ninja').with(express, [, APP_PATH])
+var ninja = require('route.ninja').with(express[, APP_PATH])
 ```
 
 The `express` parameter is the actual `Express` library, `APP_PATH` is the path where you application resides. By default, the `Ninja` will try to find the directory where your application resides but it's recommended that you pass this value. You can easily do this with: `__dirname`.
