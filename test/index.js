@@ -9,8 +9,13 @@ var request = require('supertest'),
 	ninja = require('../lib/ninja.js').with(express, __dirname),
 	app;
 
-	ninja.use(cookieParser());
-	ninja.use(bodyParser.json());
+	ninja.use(
+		cookieParser(),
+		bodyParser.json(),
+		function errorHandler (err, req, res, next) {
+			res.status(err.code || 404).send(err);
+		}
+	);
 	app = ninja.app();
 
 describe('route.ninja', function () {
@@ -53,6 +58,17 @@ describe('route.ninja', function () {
 		it('Should return 404', function (done) {
 			request(app)
 				.get('/katana')
+				.expect(404)
+				.end(function(err, res) {
+					done();
+				});
+		});
+	});
+
+	describe('#GET - Does not exist, test the error handler', function () {
+		it('Should return 404', function (done) {
+			request(app)
+				.get('/age')
 				.expect(404)
 				.end(function(err, res) {
 					done();

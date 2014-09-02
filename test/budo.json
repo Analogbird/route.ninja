@@ -7,6 +7,11 @@
 			"from": "/controllers/ninja"
 		},
 		{
+			"get": "/age",
+			"run": "age",
+			"from": "/controllers/ninja"
+		},
+		{
 			"get": "/weapon",
 			"run": "weapon",
 			"from": "/controllers/ninja",

@@ -87,6 +87,15 @@ ninja.use(cookieParser());
  * Or simply pass each middleware as an argument to "use":
  * ninja.use(bodyParser.json(), cookieParser());
  */
+ 
+/**
+ * And, of course, you should not forget about your error handler.
+ * If you do not provide an error handler the Ninja will use it's very basic own.
+ * (Personally, I prefer named functions for the sake of debugging)
+ */
+ninja.use(function errorHandler (err, req, res, next) {
+	res.status(404).send('Something went wrong on my side.');
+});
 
 app = ninja.app();
 
@@ -191,6 +200,14 @@ app.listen(3000);
 
 
 ### Upcoming features
+
+##### Simplified way of running functions
+```
+{
+	"get": "/style",
+	"run": "/controllers/ninja.style"
+}
+```
 
 ##### Use middleware in a route without predefining it
 ```
