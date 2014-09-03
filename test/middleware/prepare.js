@@ -15,7 +15,7 @@ module.exports = {
 	validate : function(req, res, next) {
 
 		// Do anything you need here
-		req.ninja.validated = '& Validated ';
+		req.ninja.validated = '& Validated';
 
 		return next();
 

@@ -12,6 +12,11 @@
 			"from": "/controllers/ninja"
 		},
 		{
+			"get": "/timeout",
+			"run": "timeout",
+			"from": "/controllers/ninja"
+		},
+		{
 			"get": "/weapon",
 			"run": "weapon",
 			"from": "/controllers/ninja",

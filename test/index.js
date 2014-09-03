@@ -6,16 +6,17 @@ var request = require('supertest'),
 	express = require('express'),
 	bodyParser = require('body-parser'),
 	cookieParser = require('cookie-parser'),
-	ninja = require('../lib/ninja.js').with(express, __dirname),
+	ninja = require('../lib/ninja.js').with(express, __dirname).timeout('3s'),
 	app;
 
 	ninja.use(
 		cookieParser(),
 		bodyParser.json(),
 		function errorHandler (err, req, res, next) {
-			res.status(err.code || 404).send(err);
+			res.status(err.status).end();
 		}
 	);
+
 	app = ninja.app();
 
 describe('route.ninja', function () {
@@ -26,6 +27,10 @@ describe('route.ninja', function () {
 				.get('/style')
 				.expect(200, 'Shotokan Karate is my favourite style.')
 				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
 					done();
 				});
 		});
@@ -37,6 +42,10 @@ describe('route.ninja', function () {
 				.get('/weapon')
 				.expect(200, 'Kusarigama is my favourite weapon. Filtered & Validated')
 				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
 					done();
 				});
 		});
@@ -49,6 +58,10 @@ describe('route.ninja', function () {
 				.send({ legend: 'Enter the dragon.'} )
 				.expect(200, 'I received the legend: Enter the dragon.')
 				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
 					done();
 				});
 		});
@@ -60,6 +73,10 @@ describe('route.ninja', function () {
 				.get('/katana')
 				.expect(404)
 				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
 					done();
 				});
 		});
@@ -71,6 +88,25 @@ describe('route.ninja', function () {
 				.get('/age')
 				.expect(404)
 				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
+					done();;
+				});
+		});
+	});
+
+	describe('#GET - Timeout test', function () {
+		it('Should return 503', function (done) {
+			request(app)
+				.get('/timeout')
+				.expect(503)
+				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
 					done();
 				});
 		});

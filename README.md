@@ -18,7 +18,7 @@ route.ninja
 The best -and easiest- way to manage your routes in your Nodejs &amp; Express applications.
 
 `
-You can cut to chase and take a look at the test application (in the test directory) 
+You can cut to the chase and take a look at the test application (in the test directory) 
 `
 
 
@@ -56,18 +56,25 @@ var ninja = require('route.ninja').with(express[, APP_PATH])
 
 The `express` parameter is the actual `Express` library, `APP_PATH` is the path where you application resides. By default, the `Ninja` will try to find the directory where your application resides but it's recommended that you pass this value. You can easily do this with: `__dirname`.
 
+Since version `0.0.20` the Ninja has support for [timeout](https://github.com/expressjs/timeout) built right into it. You do not need to worry about installing the module or anything else, just tell the Ninja to use it:
+
+```
+var ninja = require('route.ninja').with(express[, APP_PATH]).timeout([time])
+```
+
+`time`; time in milliseconds. Defaults to 3000. It can also be a string accepted by the [ms](https://www.npmjs.org/package/ms#readme) module.
 
 And now, you are ready to do something like this:
 
 ```
 var express = require('express'),
-	ninja = require('route.ninja').with(express, __dirname),
+	ninja = require('route.ninja').with(express, __dirname).timeout(),
 	app = ninja.app();
 
 app.listen(3000);
 ```
 
-You can also the the `Ninja` to use any `Express` middleware, such as, for example; `body-parser`, `cookie-parser` or `express-session`:
+You can also have the `Ninja` use any `Express` middleware, such as, for example; `body-parser`, `cookie-parser` or `express-session`:
 
 ```
 var express = require('express'),
@@ -77,6 +84,7 @@ var express = require('express'),
 	app;
 
 ninja.with(express, __dirname);
+ninja.timeout();
 ninja.use(bodyParser.json());
 ninja.use(cookieParser());
 

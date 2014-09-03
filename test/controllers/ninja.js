@@ -1,10 +1,23 @@
+'use strict';
+
+
+var errorGenerator = function errorGenerator (message, code, status) {
+
+	var error = new Error(message || 'Page not found');
+
+	error.status = status || 404;
+	error.code = code || '';
+
+	return error;
+
+};
 
 module.exports = {
 
 	age : function(req, res, next) {
 
 		// Just testing the error handler
-		return next('{ code: 404, message: "Sorry, I cannot tell you may age."}')
+		return next(errorGenerator('Sorry, I cannot tell you may age.'));
 
 	},
 	
@@ -27,6 +40,16 @@ module.exports = {
 	legend : function(req, res, next) {
 
 		res.send('I received the legend: ' + req.body.legend.trim());
+
+	},
+
+	timeout : function(req, res, next) {
+
+		setTimeout(function() {
+			if (!req.timedout) {
+				res.status(200).end();
+			}
+		},  5000);
 
 	}
 
