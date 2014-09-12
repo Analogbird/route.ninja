@@ -15,7 +15,7 @@ route.ninja
 [![Build Status](https://travis-ci.org/analogbird/route.ninja.svg)](https://travis-ci.org/analogbird/route.ninja)
 [![Dependencies](https://david-dm.org/analogbird/route.ninja.png)](https://david-dm.org/analogbird/route.ninja)
 
-The best -and easiest- way to manage your routes in your Nodejs &amp; Express applications.
+The best -and easiest- way to manage your routes in your Nodejs & Express applications.
 
 `
 You can cut to the chase and take a look at the test application (in the test directory) 
@@ -207,9 +207,9 @@ app.listen(3000);
 
 
 
-### Upcoming features
+### Some basic examples using the new (short) syntax
 
-##### Simplified way of running functions
+#### Simplified way of running functions
 ```
 {
 	"get": "/style",
@@ -221,8 +221,7 @@ app.listen(3000);
 ```
 {
 	"get": "/style",
-	"run": "style",
-	"from": "/controllers/ninja",
+	"run": "/controllers/ninja.style",
 	"via": [
 		"/middleware/prepare.filter",
 		"/middleware/prepare.validate"
@@ -230,21 +229,19 @@ app.listen(3000);
 }
 ```
 
-##### Multiple HTTP verbs for the same route
-```
-{
-	"get, post, put": "/style",
-	"run": "style",
-	"from": "/controllers/ninja"
-}
-```
-
 ##### Multiple routes for the same HTTP verb
 ```
 {
 	"get": "/style, /technique, /doctrine",
-	"run": "style",
-	"from": "/controllers/ninja"
+	"run": "/controllers/ninja.style"
+}
+```
+
+##### Multiple HTTP verbs for the same route
+```
+{
+	"get, post, put": "/style",
+	"run": "/controllers/ninja.style"
 }
 ```
 
@@ -269,18 +266,3 @@ app.listen(3000);
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 The Ninja used this logo was kindly provided by <a href="http://pixabay.com/en/users/Nemo/" target="_blank">Nemo @ Pixabay</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

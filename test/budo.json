@@ -2,6 +2,14 @@
 	"pre": "/middleware/prepare",
 	"routes": [
 		{
+			"get, post, put": "/style, /technique, /doctrine",
+			"run": "/controllers/ninja.style",
+			"via": [
+				"/middleware/prepare.filter",
+				"/middleware/prepare.validate"
+			]
+		},
+		{
 			"get": "/style",
 			"run": "style",
 			"from": "/controllers/ninja"
@@ -33,6 +41,26 @@
 				"pre.filter",
 				"pre.validate"
 			]
+		},
+		{
+			"get": "/simplestyle",
+			"run": "/controllers/ninja.style"
+		},
+		{
+			"get": "/simpleweapon",
+			"run": "/controllers/ninja.weapon",
+			"via": [
+				"/middleware/prepare.filter",
+				"/middleware/prepare.validate"
+			]
+		},
+		{
+			"get": "/style, /technique, /doctrine",
+			"run": "/controllers/ninja.style"
+		},
+		{
+			"get, post, put": "/style",
+			"run": "/controllers/ninja.style"
 		}
 	]
 }

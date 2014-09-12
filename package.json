@@ -1,7 +1,7 @@
 {
   "name": "route.ninja",
   "description": "The best -and easiest- way to manage your routes in your Nodejs & Express applications",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "main": "./lib/ninja.js",
   "author": "Stefan Aichholzer <theaichholzer@gmail.com>",
   "contributors": [],

@@ -36,10 +36,116 @@ describe('route.ninja', function () {
 		});
 	});
 
+	describe('#HTTP POST - Ninja style', function () {
+		it('Should return 200 and a text', function (done) {
+			request(app)
+				.post('/style')
+				.expect(200, 'Shotokan Karate is my favourite style.')
+				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
+					done();
+				});
+		});
+	});
+
+	describe('#HTTP POST - Ninja technique', function () {
+		it('Should return 200 and a text', function (done) {
+			request(app)
+				.post('/technique')
+				.expect(200, 'Shotokan Karate is my favourite style.')
+				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
+					done();
+				});
+		});
+	});
+
+	describe('#HTTP PUT - Ninja doctrine', function () {
+		it('Should return 200 and a text', function (done) {
+			request(app)
+				.post('/doctrine')
+				.expect(200, 'Shotokan Karate is my favourite style.')
+				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
+					done();
+				});
+		});
+	});
+
+	describe('#HTTP PUT - Ninja style', function () {
+		it('Should return 200 and a text', function (done) {
+			request(app)
+				.post('/style')
+				.expect(200, 'Shotokan Karate is my favourite style.')
+				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
+					done();
+				});
+		});
+	});
+
+	describe('#HTTP PUT - Ninja style', function () {
+		it('Should return 200 and a text', function (done) {
+			request(app)
+				.put('/style')
+				.expect(200, 'Shotokan Karate is my favourite style.')
+				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
+					done();
+				});
+		});
+	});
+
+
+	describe('#HTTP GET - Ninja style using simplified Budo', function () {
+		it('Should return 200 and a text', function (done) {
+			request(app)
+				.get('/simplestyle')
+				.expect(200, 'Shotokan Karate is my favourite style.')
+				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
+					done();
+				});
+		});
+	});
+
 	describe('#HTTP GET - Ninja weapon (with middleware)', function () {
 		it('Should return 200 and a text', function (done) {
 			request(app)
 				.get('/weapon')
+				.expect(200, 'Kusarigama is my favourite weapon. Filtered & Validated')
+				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
+					done();
+				});
+		});
+	});
+
+	describe('#HTTP GET - Ninja weapon (with middleware) using simplified Budo', function () {
+		it('Should return 200 and a text', function (done) {
+			request(app)
+				.get('/simpleweapon')
 				.expect(200, 'Kusarigama is my favourite weapon. Filtered & Validated')
 				.end(function(err, res) {
 					if (err) {
@@ -102,6 +208,36 @@ describe('route.ninja', function () {
 			request(app)
 				.get('/timeout')
 				.expect(503)
+				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
+					done();
+				});
+		});
+	});
+
+	describe('#HTTP GET - Ninja technique', function () {
+		it('Should return 200 and a text', function (done) {
+			request(app)
+				.get('/technique')
+				.expect(200, 'Shotokan Karate is my favourite style.')
+				.end(function(err, res) {
+					if (err) {
+						return done(err);
+					}
+
+					done();
+				});
+		});
+	});
+
+	describe('#HTTP GET - Ninja doctrine', function () {
+		it('Should return 200 and a text', function (done) {
+			request(app)
+				.get('/doctrine')
+				.expect(200, 'Shotokan Karate is my favourite style.')
 				.end(function(err, res) {
 					if (err) {
 						return done(err);
