@@ -249,8 +249,7 @@ app.listen(3000);
 ```
 {
 	"get, post, put": "/style, /technique, /doctrine",
-	"run": "style",
-	"from": "/controllers/ninja",
+	"run": "/controllers/ninja.style",
 	"via": [
 		"/middleware/prepare.filter",
 		"/middleware/prepare.validate"
