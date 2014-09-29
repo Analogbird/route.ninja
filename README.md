@@ -12,8 +12,8 @@ route.ninja
 	A person who excels in a particular skill or activity.
 ```
 
-[![Build Status](https://travis-ci.org/analogbird/route.ninja.svg)](https://travis-ci.org/analogbird/route.ninja)
-[![Dependencies](https://david-dm.org/analogbird/route.ninja.png)](https://david-dm.org/analogbird/route.ninja)
+[![Build Status](https://travis-ci.org/Analogbird/route.ninja.svg)](https://travis-ci.org/Analogbird/route.ninja)
+[![Dependencies](https://david-dm.org/Analogbird/route.ninja.png)](https://david-dm.org/Analogbird/route.ninja)
 
 The best -and easiest- way to manage your routes in your Nodejs & Express applications.
 
