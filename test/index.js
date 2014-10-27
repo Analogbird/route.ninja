@@ -111,7 +111,6 @@ describe('route.ninja', function () {
 		});
 	});
 
-
 	describe('#HTTP GET - Ninja style using simplified Budo', function () {
 		it('Should return 200 and a text', function (done) {
 			request(app)
